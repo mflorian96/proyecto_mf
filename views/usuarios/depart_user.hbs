@@ -1,0 +1,81 @@
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="img/Fondo3.png" alt="AdminLTELogo" height="400" width="480">
+  </div>
+   <!-- Contenido Content Wrapper. titulo  -->
+   <div class="content-wrapper">
+    <div class="content-header">
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">DEPARTAMENTOS</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped projects">
+                  <thead>
+                  <tr>
+                    <th>Nip</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Departamento</th>
+                    <th>Descripción</th>
+                    <th>Fecha de Registro</th>
+                    <th>Opciones</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    {{#each departamentos}}
+                  <tr>
+                    <td>{{nip}}</td>
+                    <td>{{nombres}}</td>
+                    <td>{{apellidos}}</td>
+                    <td>{{lugar_servicio}}</td>
+                    <td>{{descripcion}}</td>
+                    <td>{{formatDate fecha_registro}}</td>
+                    <td class="text-center py-0 align-middle">
+                      <div class="btn-group btn-group-sm">
+                        <abbr title="Editar Lugar de Servicio del Usuario">
+   <a href="/edit_depart_user?id={{nip}}" id="{{nip}}" class="btn btn-info">
+                        <i class="fas fa-edit"></i></a>  
+                        </abbr>
+                      </div>
+                    </td>
+                  </tr>
+                  {{/each}}
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+  </div>
+</div>
+  
+  <footer class="main-footer">
+    <strong>Policía Nacional Civil  |  Copyright &copy; 2022 </strong>
+  </footer>
+  <aside class="control-sidebar control-sidebar-dark"></aside>
+</div>
+<script>
+  function mostrar (id){
+ fetch('/edit_depart_user?' + new URLSearchParams({
+    id:id
+}), {
+    method: 'GET',
+})};
+</script>
+</body>

@@ -1,0 +1,226 @@
+<body class="hold-transition sidebar-mini layout-fixed">
+  <div class="wrapper">
+
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__shake" src="img/Fondo3.png" alt="AdminLTELogo" height="400" width="480">
+    </div>
+    <!-- Contenido Content Wrapper. titulo  -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <!-- Main content -->
+        <section class="content">
+          <div class="container-fluid">
+            <!-- SELECT2 EXAMPLE -->
+            <div class="card card-default card-info">
+              <div class="card-header">
+                <h3 class="card-title"> EGRESO DE ARMAS</h3>
+              </div>
+              <form name="guardar" action="/add_egreso_armas" method="post">
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <div class="row">
+                    {{#if datos}}
+                    {{#each datos}}
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-id-card"></i>
+                        <label for="nombre_departamento">NIP del agente</label>
+                        <input type="text" class="form-control" name="nip" value="{{nip}}" autocomplete="off"
+                          required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-user"></i>
+                        <label for="nombre_departamento">Nombres</label>
+                        <input type="text" class="form-control" name="nombres" value="{{nombres}}" autocomplete="off"
+                          required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-user"></i>
+                        <label for="nombre_departamento">Apellidos</label>
+                        <input type="text" class="form-control" name="apellidos" value="{{apellidos}}"
+                          autocomplete="off" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <label>Lugar de servicio</label>
+                        <select class="form-control select2" name="lugar_servicio" style="width: 100%;" required>
+                          <option selected="selected">{{lugar_servicio}}</option>
+                          <option value="SGTIC">SGTIC</option>
+                          <option value="JPDI">JPDI</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-arrows-alt"></i>
+                        <label>Grado</label>
+                        <select class="form-control select2" style="width: 100%;" name="grado" required>
+                          <option selected="selected">{{grado}}</option>
+                          <option value="agente">Agente</option>
+                          <option value="comisario">Comisario</option>
+                        </select>
+                      </div>
+                    </div>
+                    {{/each}}
+                    {{else}}
+                         <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-id-card"></i>
+                        <label for="nombre_departamento">NIP del agente</label>
+                        <input type="text" class="form-control" name="nip" placeholder="NIP" autocomplete="off"
+                          required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-user"></i>
+                        <label for="nombre_departamento">Nombres</label>
+                        <input type="text" class="form-control" name="nombres" placeholder="Nombre" autocomplete="off"
+                          required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-user"></i>
+                        <label for="nombre_departamento">Apellidos</label>
+                        <input type="text" class="form-control" name="apellidos" placeholder="Apellidos"
+                          autocomplete="off" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <label>Lugar de servicio</label>
+                        <select class="form-control select2" name="lugar_servicio" style="width: 100%;" required>
+                          <option selected="selected">Seleccionar</option>
+                          <option value="SGTIC">SGTIC</option>
+                          <option value="JPDI">JPDI</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-arrows-alt"></i>
+                        <label>Grado</label>
+                        <select class="form-control select2" style="width: 100%;" name="grado" required>
+                          <option selected="selected">Seleccionar</option>
+                          <option value="agente">Agente</option>
+                          <option value="comisario">Comisario</option>
+                        </select>
+                      </div>
+                    </div>
+                    {{/if}}
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-fire"></i>
+                        <label for="descripcion_departamento">Tipo de arma</label>
+                        <select class="form-control select2" name="tipo_arma" style="width: 100%;" required>
+                          <option selected="selected" value="null">Seleccione una opción</option>
+                          <option value="revolver">Revolver</option>
+                          <option value="pistola">Pistola</option>
+                          <option value="escopeta">Escopeta</option>
+                          <option value="fusil">Fusil</option>
+                          <option value="ametralladora">Ametralladora</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-fire"></i>
+                        <label>Marca</label>
+                        <select class="form-control select2" name="marca" style="width: 100%;" required>
+                          <option selected="selected" value="null">Seleccione una opción</option>
+                          <option value="Glock">Glock</option>
+                          <option value="Beretta">Beretta</option>
+                          <option value="Browning">Browning</option>
+                          <option value="CZ">CZ</option>
+                          <option value="Hammerli">Hammerli</option>
+                          <option value="Remington">Remington</option>
+                          <option value="Sauer">Sauer</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-info-circle"></i>
+                        <label>Numero de Serie</label>
+                        <input type="text" class="form-control" name="numero_serie" placeholder="Numero de Serie"
+                          autocomplete="off" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-info-circle"></i>
+                        <label for="descripcion_departamento">Observaciones</label>
+                        <input type="text" class="form-control" name="observaciones" placeholder="Observaciones"
+                          autocomplete="off" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-clipboard-check"></i>
+                        <label for="descripcion_departamento">Estado de arma</label>
+                        <select class="form-control select2" name="estado_arma" style="width: 100%;" required>
+                          <option selected="selected">Selecciona una opción</option>
+                          <option value="ALMACENADA">ALMACENADA</option>
+                          <option value="ENTREGADA">ENTREGADA</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="card-footer ">
+                      <a onclick="save()" type="submit" class="btn  bg-primary float-center"><i
+                          class="nav-icon fas fa-save"></i>
+                        &nbsp
+                        Registrar</a>
+                      <a href="javascript:history.back()" type="submit" class="btn  bg-danger float-center"><i
+                          class="nav-icon fas fa-arrow-alt-circle-left"></i> &nbsp Cancelar</a>
+                    </div>
+              </form>
+            </div>
+          </div>
+    </div>
+    </section>
+    </section>
+  </div>
+  </div>
+  <footer class="main-footer">
+    <strong>Policía Nacional Civil | Copyright &copy; 2022 </strong>
+  </footer>
+  <aside class="control-sidebar control-sidebar-dark"></aside>
+  </div>
+  <script>
+    function save() {
+      Swal.fire({
+        title: 'Desea Guardar el Nuevo Registro?',
+        icon: 'warning',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Guardar',
+        cancelButtonText: 'Cancelar',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Registro Guardado Correctamente',
+            showConfirmButton: false,
+            timer: 1500
+          }).then((result) => {
+            document.guardar.submit();
+          })
+        }
+      })
+    }
+  </script>
+</body>

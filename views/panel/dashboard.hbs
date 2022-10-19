@@ -1,0 +1,80 @@
+<div class="hold-transition sidebar-mini layout-fixed">
+  <div class="wrapper">
+
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__shake" src="img/Fondo3.png" alt="AdminLTELogo" height="400" width="480">
+    </div>
+    <!-- Contenido Content Wrapper. titulo  -->
+    <div class="content-wrapper">
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0 ">Modulos</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="content">
+        <div class="container-fluid">
+          <!-- Small boxes (Stat box) -->
+          <div class="row">
+            <div class="col-lg-3 col-6">
+              {{#if total_users}}
+              <!-- small box -->
+              <div class="small-box bg-info cursorButton">
+                <div class="inner">
+                  <h3>{{total_users}}</h3>
+                  <p>Usuarios</p>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-users"></i>
+                </div>
+                <a href="/usuarios" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+              {{/if}}
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+              {{#if total_ingresos}}
+              <!-- small box -->
+              <div class="small-box bg-success cursorButton">
+                <div class="inner">
+                  <h3>{{total_ingresos}}</h3>
+                  <p>Almacen de Armas</p>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <a href="/ingreso_armas" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+              {{/if}}
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+              {{#if total_egresos}}
+              <!-- small box -->
+              <div class="small-box bg-danger cursorButton">
+                <div class="inner">
+                  <h3>{{total_egresos}}</h3>
+                  <p>Retiro de Armas</p>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-clipboard-list"></i>
+                </div>
+                <a href="/egreso_armas" class="small-box-footer">Más información<i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+              {{/if}}
+            </div>
+
+          </div>
+        </div>
+    </div>
+    </section>
+  </div>
+  <footer class="main-footer">
+    <strong>Policía Nacional Civil | Copyright &copy; 2022 </strong>
+  </footer>
+  <aside class="control-sidebar control-sidebar-dark"></aside>
+</div>

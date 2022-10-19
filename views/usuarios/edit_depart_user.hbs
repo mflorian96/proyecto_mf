@@ -1,0 +1,104 @@
+<body class="hold-transition sidebar-mini layout-fixed">
+  <div class="wrapper">
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__shake" src="img/Fondo3.png" alt="AdminLTELogo" height="400" width="480">
+    </div>
+    <!-- Contenido Content Wrapper. titulo  -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <!-- Main content -->
+        <section class="content">
+          <div class="container-fluid">
+            <!-- SELECT2 EXAMPLE -->
+            <div class="card card-default card-info">
+              <div class="card-header">
+                <h3 class="card-title">Información Del Departamento</h3>
+              </div>
+              <form name="actualizar"  action="/edit_depart_user" method="post">
+                <!-- /.card-header -->
+                    {{#each departamento}}
+                <div class="card-body">
+                  <div class="row">
+                     <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-user-tag nav-icon"></i>
+                        <label for="nombre_rol"> Nip</label>
+                        <input type="text" class="form-control" name="nip" value="{{nip}}" placeholder="Rol"
+                          autocomplete="off" readonly>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-info-circle"></i>
+                        <label for="descripcion_rol">Nombres</label>
+                        <input type="text" class="form-control" name="nombres" value="{{nombres}}"
+                          placeholder="Descripción" autocomplete="off" readonly>
+                      </div>
+                    </div>
+                         <div class="col-md-6">
+                      <div class="form-group">
+                        <i class="fas fa-info-circle"></i>
+                        <label for="descripcion_departamento">Apellidos</label>
+                        <input type="text" class="form-control" name="apellidos" value="{{apellidos}}" placeholder="Descripción"
+                          autocomplete="off" readonly>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                     <div class="form-group">
+                    <i class="fas fa-tag"></i>
+                    <label>Lugar de servicio</label>
+                    <select class="form-control select2" name="lugar_servicio" style="width: 100%;" required>
+                      <option  selected="selected" >{{lugar_servicio}}</option>
+                      <option value="SGTIC">SGTIC</option>
+                      <option value="JPDI">JPDI</option>
+                    </select>
+                  </div>
+                    </div>
+                  </div>
+                  <a onclick="update()" type="submit"  class="btn  bg-primary float-center"><i class="nav-icon fas fa-save"></i>
+                    &nbsp Actualizar Lugar de Servicio</a>
+                  <a href="/depart_user"  class="btn  bg-danger float-center"><i
+                      class="nav-icon fas fa-arrow-alt-circle-left"></i> &nbsp Cancelar</a>
+                </div>
+            </div>
+                    {{/each}}
+            </form>
+        </section>
+      </section>
+    </div>
+  </div>
+  <footer class="main-footer">
+    <strong>Policía Nacional Civil | Copyright &copy; 2022 </strong>
+  </footer>
+  <aside class="control-sidebar control-sidebar-dark"></aside>
+  </div>
+  <script>
+    function update(){
+      Swal.fire({
+  title: 'Desea Guardar los Cambios?',
+  icon: 'warning',
+  allowOutsideClick: false,
+allowEscapeKey: false,
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Guardar',
+  cancelButtonText:'Cancelar',
+}).then((result) => {
+  if (result.isConfirmed) {
+   Swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: 'Registro Actualizado Correctamente',
+  showConfirmButton: false,
+  timer: 1500
+}).then((result)=>{
+document.actualizar.submit();
+})
+  }
+})
+    }
+  </script>
+</body>

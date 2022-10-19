@@ -1,0 +1,153 @@
+<body class="hold-transition sidebar-mini layout-fixed">
+  <div class="wrapper">
+
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__shake" src="img/Fondo3.png" alt="AdminLTELogo" height="400" width="480">
+    </div>
+    <!-- Contenido Content Wrapper. titulo  -->
+    <div class="content-wrapper">
+      <div class="content-header">
+        <section class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">USUARIOS</h3>
+                    <a href="/usuarios_add" type="submit" class="btn  bg-primary float-right"><i
+                        class="nav-icon fas fa-plus"></i> AGREGAR</a>
+                  </div>
+
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped projects">
+                      <thead>
+                        <tr>
+                          <th style="width: 5%">Imagen</th>
+                          <th>Nombre</th>
+                          <th>Apellido</th>
+                          <th>Usuario</th>
+                          <th>Estado</th>
+                          <th>Correo</th>
+                          <th>Fecha de registro</th>
+                          <th>Opciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {{#each usuarios}}
+                        <tr>
+                          <td>
+                            <ul class="list-inline text-center">
+                              <li class="list-inline-item">
+                                <img class="table-avatar" src="{{perfil}}">
+                              </li>
+                          </td>
+                          <td>{{nombres}}</td>
+                          <td>{{apellidos}} </td>
+                          <td>{{usuario}}</td>
+                          <td>{{estado}}</td>
+                          <td>{{correo}}</td>
+                          <td>{{formatDate fecha_registro}}</td>
+                          <td class="text-center py-0 align-middle">
+                            <div class="btn-group btn-group-sm">
+                              <abbr title="Editar Datos del Usuario">
+                                <a href="/edit_usuario?id={{nip}}" id="{{nip}}" class="btn btn-info"><i
+                                    class="fas fa-edit"></i></a>
+                              </abbr>
+                              <abbr title="Desactivar Usuario">
+                                <a onclick="estado_inactivo({{id}})" type="submit" id="{{nip}}"
+                                  class="btn btn-danger"><i class="fas fa-user-alt-slash"></i></a>
+                              </abbr>
+                              <abbr title="Activar Usuario">
+                                <a onclick="estado_activo({{id}})" id="{{id}}" type="submit" class="btn btn-primary"><i
+                                    class="fas fa-user-alt"></i></a>
+                              </abbr>
+                            </div>
+                          </td>
+                        </tr>
+                        {{/each}}
+                      </tbody>
+
+                    </table>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container-fluid -->
+        </section>
+      </div>
+    </div>
+    <footer class="main-footer">
+      <strong>Policía Nacional Civil | Copyright &copy; 2022 </strong>
+    </footer>
+    <aside class="control-sidebar control-sidebar-dark"></aside>
+  </div>
+  <script>
+    function estado_activo(id) {
+      Swal.fire({
+        title: 'Esta Seguro de Activar el Usuario?',
+        icon: 'warning',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        showCancelButton: true,
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger',
+        confirmButtonText: 'Activar',
+        cancelButtonText: 'Cancelar',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Usuario Activado Correctamente',
+            showConfirmButton: false,
+            timer: 1500
+          }).then((result) => {
+            window.location = '/estado_activo_usuario?id=' + id
+          })
+        }
+      })
+    }
+
+    function estado_inactivo(id) {
+      Swal.fire({
+        title: 'Esta Seguro de Desactivar el Usuario?',
+        icon: 'warning',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        showCancelButton: true,
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger',
+        confirmButtonText: 'Desactivar',
+        cancelButtonText: 'Cancelar',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Usuario Desactivado Correctamente',
+            showConfirmButton: false,
+            timer: 1500
+          }).then((result) => {
+            window.location = '/estado_inactivo_usuario?id=' + id
+          })
+        }
+      })
+    }
+  </script>
+  <script>
+    function sendId(id) {
+      fetch('/edit_usuario?' + new URLSearchParams({
+        id: id
+      }), {
+        method: 'GET',
+      })
+    };
+  </script>
+</body>

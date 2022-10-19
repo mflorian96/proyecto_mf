@@ -1,0 +1,63 @@
+<main class="index">
+   <body class="hold-transition login-page">
+    <div class="login-box">
+      <!-- /.login-logo -->
+      <div class="card card-outline card-primary">
+        <div class="card-header text-center">
+          <div class="text-center">
+            <a href="index3.html" class="brand-link">
+              <img
+                src="img/Fondo3.png"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  width: 80%;
+                "
+              />
+              <span class="brand-text font-weight-light"></span>
+            </a>
+          </div>
+        </div>
+        <div class="card-body text-center">
+          <p class="login-box-msg" >Ingresa las credenciales de acceso.</p>
+
+          <form action="/signin" method="POST">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control"  name="usuario" placeholder="Usuario" />
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope"></span>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <input type="password" class="form-control" name="contraseña" id="contraseña" placeholder="Password"
+              />
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-lock"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <button type="submit" class="btn bg-primary">
+                  Iniciar sesión
+                </button>
+              </div>
+              <div class="col-12">
+                         <a href="/registro">Registrarse</a>
+              </div>
+              <!-- /.col -->
+            </div>
+          </form>
+          <div class="social-auth-links text-center mt-2 mb-3">
+            <p class="letterHome">Futurama | Copyright &copy; 2022 </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</main>

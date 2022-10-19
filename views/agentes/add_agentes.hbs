@@ -1,0 +1,156 @@
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="img/Fondo3.png" alt="AdminLTELogo" height="400" width="480">
+  </div>
+   <!-- Contenido Content Wrapper. titulo  -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header"> 
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <!-- SELECT2 EXAMPLE -->
+          <div class="card card-default card-info">
+            <div class="card-header">
+              <h3 class="card-title">Información Del Agente</h3>
+            </div>
+             <form name="guardar" action="/add_agentes" method="POST" enctype="multipart/form-data">
+            <!-- /.card-header -->
+            <div class="card-body">
+                       <!-- Profile Image -->
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  <img name="preview" id="preview" class="profile-user-img img-fluid img-circle"
+                       src="img/avatar4.png"
+                       alt="User profile picture" >
+                </div>
+                           <div class="form-group">
+                      <i class="fas fa-image"></i>
+                      <label for="exampleInputFile">Imagen</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" name="image" id="image" placeholder="Archivo">
+                          <label class="custom-file-label" placeholder="Buscar" for="exampleInputFile">Elegir
+                            archivo</label>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <i class="nav-icon fas fa-user"></i>
+                    <label for="nombres">Nombre</label>
+                    <input type="text" class="form-control" name="nombres" placeholder="Nombre" autocomplete="off" required>
+                  </div> 
+                   <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <label for="nip">NIP</label>
+                    <input type="text" class="form-control" name="nip" placeholder="NIP" autocomplete="off" required>
+                  </div>  
+                   <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <label for="direccion">Dirección</label>
+                    <input type="text" class="form-control" name="direccion" placeholder="Dirección" autocomplete="off" required>
+                  </div>
+                  <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="correo" placeholder="Email" autocomplete="off" required>
+                  </div>
+                        <div class="form-group">
+                    <i class="fas fa-tag"></i>
+                    <label>Genero</label>
+                    <select class="form-control select2" style="width: 100%;" name="genero" required>
+                      <option  selected="selected">Seleccionar</option>
+                      <option value="agente">Masculino</option>
+                      <option value="comisario">Femenino</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <i class="nav-icon fas fa-user"></i>
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" class="form-control" name="apellidos" placeholder="Apellidos" autocomplete="off" required>
+                  </div>
+                   <div class="form-group">
+                    <i class="fas fa-tag"></i>
+                    <label>Grado</label>
+                    <select class="form-control select2" style="width: 100%;" name="grado" required>
+                      <option  selected="selected">Seleccionar</option>
+                      <option value="agente">Agente</option>
+                      <option value="comisario">Comisario</option>
+                    </select>
+                  </div>
+                   <div class="form-group">
+                    <i class="fas fa-user-lock"></i>
+                    <label for="telefono">Telefono</label>
+                    <input type="text" class="form-control" name="telefono" placeholder="Telefono" autocomplete="off" required>
+                  </div> 
+                  <div class="form-group">
+                    <i class="fas fa-tag"></i>
+                    <label>Lugar de servicio</label>
+                    <select class="form-control select2" name="lugar_servicio" style="width: 100%;" required>
+                      <option  selected="selected">Seleccionar</option>
+                      <option value="SGTIC">SGTIC</option>
+                      <option value="JPDI">JPDI</option>
+                    </select>
+                  </div>
+                     <div class="form-group">
+                    <i class="fas fa-tag"></i>
+                    <label>Estado Civil</label>
+                    <select class="form-control select2" name="estado_civil" style="width: 100%;" required>
+                      <option  selected="selected">Seleccionar</option>
+                      <option value="casado">Casado</option>
+                      <option value="soltero">Soltero</option>
+                    </select>
+                  </div>
+                   <div class="card-footer ">
+              <a onclick="save()" type="submit" class="btn  bg-primary float-center"><i class="nav-icon fas fa-save"></i> &nbsp Registrar</a>
+              <a href="/agentes" type="submit"  class="btn  bg-danger float-center"><i class="nav-icon fas fa-arrow-alt-circle-left"></i> &nbsp Cancelar</a>
+            </div>
+            </form>
+        </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    </div>
+  </div>
+  <footer class="main-footer">
+    <strong>Policía Nacional Civil  |  Copyright &copy; 2022 </strong>
+  </footer>
+  <aside class="control-sidebar control-sidebar-dark"></aside>
+</div>
+ <script>
+    function save(){
+      Swal.fire({
+  title: 'Desea Guardar el Nuevo Usuario?',
+  icon: 'warning',
+  allowOutsideClick: false,
+allowEscapeKey: false,
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Guardar',
+  cancelButtonText:'Cancelar',
+}).then((result) => {
+  if (result.isConfirmed) {
+   Swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: 'Usuario Registrado Correctamente',
+  showConfirmButton: false,
+  timer: 1500
+}).then((result)=>{
+document.guardar.submit();
+})
+  }
+})
+    }
+  </script>
+</body>
